@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>이미지 업로더</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="uploader.css">
+    </head>
+    <body>
+        <div class="layout">
+            <div class="container layout-left">
+                <div class="title">싱글 이미지 업로더</div>
+                <form class="section" id="singleImageUploader" enctype="multipart/form-data">
+                    <input class="display-none" type="file" id="singleImageChooseFile" name="singleImageChooseFile" accept="image/*" onchange="loadFile(this)">
+                    <label class="button" for="singleImageChooseFile">이미지 선택</label>
+                    <div class="display-none" id="singleImageFileName"></div>
+                    <div class="display-none" id="singleimageFileShow"></div>
+                    <button class="button" type="button" id="submitButton">업로드</button>
+                </form>
+            </div>
+            <div class="container layout-right">
+                <div class="title">멀티 이미지 업로더</div>
+                <form class="section" id="multipleImageUploader" enctype="multipart/form-data">
+                    <input class="display-none" type="file" id="multipleImageChooseFile" name="multipleImageChooseFile" accept="image/*" onchange="loadFile(this)" multiple>
+                    <label class="button" for="multipleImageChooseFile">이미지 선택</label>
+                    <div class="display-none" id="multipleImageFileName"></div>
+                    <div class="display-none" id="multipleimageFileShow"></div>
+                    <button class="button" type="button" id="submitButton">업로드</button>
+                </form>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>

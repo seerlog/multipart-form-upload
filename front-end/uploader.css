@@ -1,0 +1,56 @@
+.layout {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.layout-left {
+    flex: 1;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.layout-right {
+    flex: 1;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section {
+    padding: 8px;
+}
+
+.title {
+    font-family: 'Pretendard';
+    font-size: 30px;
+    font-weight: 800;
+    padding: 12px 0;
+}
+
+.button {
+    padding: 4px 12px;
+    color: #0A0A0A;
+    background-color: white;
+    font-family: 'Pretendard';
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #0A0A0A;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #0A0A0A;
+    color: #FAFAFA;
+}
+
+
+.display-none {
+    display: none;
+}
