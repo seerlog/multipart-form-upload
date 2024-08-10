@@ -1,14 +1,31 @@
-function loadFile(input) {
-    var file = input.files[0];
-    var name = document.getElementById('fileName');
-    name.textContent = file.name;
+function singleImageload(input) {
+    const previewTitle = document.querySelector("#preview-single-image-title");
+    const previewImg = document.querySelector("#preview-single-image");
+    if(input.files.length > 0) {
+        const file = input.files[0];
+        const reader = new FileReader();
+        reader.onload = function(data) {
+            previewImg.src = data.target.result;
+        }
+        previewTitle.style.display = "none";
+        previewImg.style.display = "block";
+        reader.readAsDataURL(file);
+    }
+}
 
-    var newImage = document.createElement("img");
-    newImage.src = URL.createObjectURL(file);
-    newImage.style.visibility = "hidden";
-
-    var container = document.getElementById('image-show');
-    container.appendChild(newImage);
+function multipleImageload(input) {
+    const previewTitle = document.querySelector("#preview-multiple-image-title");
+    const previewImg = document.querySelector("#preview-multiple-image");
+    if(input.files.length > 0) {
+        const file = input.files[0];
+        const reader = new FileReader();
+        reader.onload = function(data) {
+            previewImg.src = data.target.result;
+        }
+        previewTitle.style.display = "none";
+        previewImg.style.display = "block";
+        reader.readAsDataURL(file);
+    }
 }
 
 document.getElementById('submitButton').onclick = function() {
