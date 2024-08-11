@@ -14,18 +14,32 @@ function singleImageload(input) {
 }
 
 function multipleImageload(input) {
+    const previewMainImg = document.querySelector("#preview-multiple-image");
     const previewTitle = document.querySelector("#preview-multiple-image-title");
-    const previewImg = document.querySelector("#preview-multiple-image");
-    if(input.files.length > 0) {
-        const file = input.files[0];
-        const reader = new FileReader();
-        reader.onload = function(data) {
-            previewImg.src = data.target.result;
+    const previewSubImgs = document.querySelector("#preview-sub-images"); 
+    previewSubImgs.innerHTML = '';
+    
+    if(input.files.length > 0) {   
+        const mainReader = new FileReader();
+        mainReader.onload = function(data) {
+            previewMainImg.src = data.target.result;
         }
         previewTitle.style.display = "none";
-        previewImg.style.display = "block";
-        reader.readAsDataURL(file);
-    }
+        previewMainImg.style.display = "block";
+        mainReader.readAsDataURL(input.files[0]);
+
+        for (let i = 1; i < input.files.length; i++) {
+            const subReader = new FileReader();
+            subReader.onload = function(data) {
+                const subImg = document.createElement('img');
+                subImg.src = data.target.result;
+                subImg.style.width = '100px';
+                subImg.style.height = '100px';
+                previewSubImgs.appendChild(subImg);
+            }
+            subReader.readAsDataURL(input.files[i]);
+        }
+    }    
 }
 
 document.getElementById('submitButton').onclick = function() {
