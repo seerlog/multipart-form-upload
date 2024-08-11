@@ -18,7 +18,7 @@ function multipleImageload(input) {
     const previewTitle = document.querySelector("#preview-multiple-image-title");
     const previewSubImgs = document.querySelector("#preview-sub-images"); 
     previewSubImgs.innerHTML = '';
-    
+
     if(input.files.length > 0) {   
         const mainReader = new FileReader();
         mainReader.onload = function(data) {
@@ -33,8 +33,7 @@ function multipleImageload(input) {
             subReader.onload = function(data) {
                 const subImg = document.createElement('img');
                 subImg.src = data.target.result;
-                subImg.style.width = '100px';
-                subImg.style.height = '100px';
+                subImg.classList.add('preview-sub-image');
                 previewSubImgs.appendChild(subImg);
             }
             subReader.readAsDataURL(input.files[i]);
